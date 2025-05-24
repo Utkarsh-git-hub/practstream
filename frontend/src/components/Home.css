@@ -1,0 +1,218 @@
+/* Home.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #1a1a1a; /* Fallback dark background */
+  font-family: 'Poppins', sans-serif;
+}
+
+.home-page {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Each section occupies full viewport height */
+section {
+  position: relative;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Hero Section */
+.hero-section {
+  background-image: url('../images/img24.jpg'); /* Your hero background image */
+}
+
+/* Features Section */
+
+.get-started-section {
+  background-image: url('../images/img28.jpg'); 
+} 
+
+/* About Section */
+.about-section {
+  background-image: url('../images/img3.jpg'); /* Your about background image */
+}
+
+/* Overlay for sections */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background-color: rgba(0, 0, 0, 0); Semi-transparent dark overlay */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: #fff;
+}
+
+/* Hero Overlay Content: split horizontally */
+.hero-overlay-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 2px;
+  height: 91vh;
+}
+
+.hero-left,
+.hero-right {
+  flex: 1;
+  padding: 20px;
+}
+
+.hero-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+}
+
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border-width: 2px;
+}
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  align-items: center;      
+  text-align: justify;      
+  height: 100%;             
+  padding: 20px;            
+}
+
+
+
+.hero-right h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.hero-right p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  max-width: 500px;
+}
+
+.cta-btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.cta-btn {
+  padding: 8px 12px;
+  background-color: #eb6111;
+  border: none;
+  border-radius: 28px;
+  color: #000000;
+  font-size: 1.2rem;
+  font-weight: 550;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 14px; 
+}
+
+
+.cta-btn:hover {
+  background-color: #c64b04;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+}
+
+.get-started-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.room-box {
+  display: flex;
+  width: 80%;
+  max-width: 950px;
+  background-color: rgb(0, 0, 0, 0.7); 
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0px 0px rgba(255, 255, 255, 0.2);
+  height: 500px;
+}
+
+
+.room-box-left {
+  flex: 1.2;
+  background-image: url('../images/movietime.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+
+.room-box-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-decoration: none;
+}
+.room-box-right a {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+.room-box-right .ctb-btn{
+   margin: 40px;
+   padding: 20px 20px;
+   text-align: center;
+   font-size: 2rem;
+   transition: 0.5s;
+   background-color: transparent;
+   color: rgb(216, 216, 216);            
+   border-radius: 8px;
+   display: block;
+   width: 284px;
+   cursor: pointer;
+   text-decoration: none;
+   border-color: #179ee6;
+   border-width: 3px;
+   font-weight: 550;
+ }
+
+ .room-box-right .ctb-btn:hover {
+   background-position: right center;
+   color: #ffffff;
+   border-color: #101e95;
+   text-decoration: none;
+ }
+
+ 
+
+
+ 
+ 
