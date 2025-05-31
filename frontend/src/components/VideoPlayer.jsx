@@ -3,13 +3,22 @@ import './VideoPlayer.css';
 
 function VideoPlayer({ videoURL, socket, roomCode }) {
   const videoRef = useRef(null);
+  const isRemoteActionRef = useRef(false);
   const isSeekingRef = useRef(false);
 
   const handlePlay = () => {
+    if (isRemoteActionRef.current) {
+      isRemoteActionRef.current = false;
+      return;
+    }
     socket.emit('playerControl', { roomCode, message: 'play' });
   };
 
   const handlePause = () => {
+    if (isRemoteActionRef.current) {
+      isRemoteActionRef.current = false;
+      return;
+    }
     socket.emit('playerControl', { roomCode, message: 'pause' });
   };
 
@@ -30,22 +39,32 @@ function VideoPlayer({ videoURL, socket, roomCode }) {
   };
 
   useEffect(() => {
-    socket.on('playerControlUpdate', data => {
-      const video = videoRef.current;
-      if (!video) return;
-      if (data.message === 'play') {
-        video.play();
-      } else if (data.message === 'pause') {
-        video.pause();
-      } else if (data.message === 'seek') {
-        isSeekingRef.current = true;
-        video.currentTime = data.context;
+    socket.on('playerControlUpdate', (data) => {
+      const videoEl = videoRef.current;
+      if (!videoEl) return;
+
+      switch (data.message) {
+        case 'play':
+          isRemoteActionRef.current = true;
+          videoEl.play();
+          break;
+        case 'pause':
+          isRemoteActionRef.current = true;
+          videoEl.pause();
+          break;
+        case 'seek':
+          isSeekingRef.current = true;
+          videoEl.currentTime = data.context;
+          break;
+        default:
+          break;
       }
     });
+
     return () => {
       socket.off('playerControlUpdate');
     };
-  }, [socket]);
+  }, [socket, roomCode]);
 
   return (
     <div className="video-player">
@@ -63,4 +82,5 @@ function VideoPlayer({ videoURL, socket, roomCode }) {
 }
 
 export default VideoPlayer;
+
 
